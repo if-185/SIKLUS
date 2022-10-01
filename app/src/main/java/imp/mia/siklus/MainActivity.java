@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -98,6 +100,19 @@ public class MainActivity extends AppCompatActivity
         {
             webView.goBack();
         }
-        super.onBackPressed();
+        //super.onBackPressed();
+        //For exit alert
+        else
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Apakah kamu sudah berlatih hari ini? \n Yakin ingin keluar?")
+                    .setNegativeButton("Tidak", null)
+                    .setPositiveButton("Iya", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finishAffinity();
+                        }
+                    }).show();
+        }
     }
 }
