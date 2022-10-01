@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
         //Custom Web Service Call
         CustomWebViewClient client = new CustomWebViewClient(this);
 
-        //Swipe Down Reload
+        //SwipeDown Reload
         swipeRefreshLayout = findViewById(R.id.SwipeDown);
 
         //WebView
