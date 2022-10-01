@@ -1,6 +1,7 @@
 package imp.mia.siklus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity
 {
     private WebView webView;
     private String URL = "https://siklushealthy.com/";
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,7 +24,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Custom Web Service Call
         CustomWebViewClient client = new CustomWebViewClient(this);
+
+        //Swipe Reload
+        swipeRefreshLayout = findViewById(R.id.SwipeDown);
 
         //WebView
         webView = findViewById(R.id.SiklusWV);
@@ -31,6 +37,16 @@ public class MainActivity extends AppCompatActivity
         webSettings.setDomStorageEnabled(true);
         webView.setWebViewClient(client);
         webView.loadUrl(URL);
+
+        //Swipe Listener
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+        {
+            @Override
+            public void onRefresh()
+            {
+                webView.reload();
+            }
+        });
     }
     //Custom Client
     class CustomWebViewClient extends WebViewClient
@@ -39,6 +55,14 @@ public class MainActivity extends AppCompatActivity
         CustomWebViewClient(Activity activity)
         {
             this.activity = activity;
+        }
+
+        //For Reload
+        @Override
+        public void onPageFinished(WebView view, String url)
+        {
+            super.onPageFinished(view, url);
+            swipeRefreshLayout.setRefreshing(false);
         }
 
         @Override
