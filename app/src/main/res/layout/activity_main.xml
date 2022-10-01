@@ -20,4 +20,56 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <RelativeLayout
+        android:id="@+id/CustomError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/NoInternetImg"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="100dp"
+            android:src="@drawable/ic_baseline_wifi_off_24"/>
+
+        <TextView
+            android:id="@+id/PesanError1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/NoInternetImg"
+            android:layout_margin="15dp"
+            android:text="Waduh ~~~"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/PesanError2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/PesanError1"
+            android:layout_margin="2dp"
+            android:text="Kesalahan Jaringan"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/ButtonRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coba Lagi"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/PesanError2"
+            android:layout_margin="6dp"/>
+
+
+    </RelativeLayout>
+
   </RelativeLayout>
