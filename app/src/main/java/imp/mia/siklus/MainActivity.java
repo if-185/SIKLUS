@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
         relativeLayout = findViewById(R.id.CustomError);
 
         //Reload Button on Internet Error
-        reloadBtn =  findViewById(R.id.ButtonRefresh);
+        reloadBtn =  findViewById(R.id.btnRefresh);
 
         //WebView
         webView = findViewById(R.id.SiklusWV);
